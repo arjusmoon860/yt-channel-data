@@ -1,0 +1,19 @@
+{
+  "name": "yt-channel-data",
+  "version": "1.0.0",
+  "description": "Fetch channel data of any YouTube channel",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Youtube",
+    "data",
+    "scrapper"
+  ],
+  "author": "Arju S Moon",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
+}

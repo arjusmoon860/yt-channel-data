@@ -2,7 +2,7 @@
   "name": "yt-channel-data",
   "version": "1.0.0",
   "description": "Fetch channel data of any YouTube channel",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +11,10 @@
     "data",
     "scrapper"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arjusmoon860/yt-channel-data.git"
+  },
   "author": "Arju S Moon",
   "license": "ISC",
   "dependencies": {

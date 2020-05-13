@@ -16,7 +16,7 @@ const getChannelInfo = function (ytUserName, API_KEY) {
 
 const getChannelActivities = function (ytChannelID, API_KEY, maxResults) {
   return new Promise((resolve, reject) => {
-    let maxData = 10;
+    let maxData = 5;
     if (maxResults) {
       maxData = parseInt(maxResults);
     }

@@ -37,6 +37,13 @@ async function getActivities() {
   console.log(channelInfo);
 }
 getActivities();
+
+async function getVideoInfo() {
+  let videoIDs = ["jrMsWztL1n8", "Cm2dczXpBG0", "Jk7rliZpuSs"];
+  var videoInfo = await channelData.listVideoInfo(videoIDs, "API_KEY");
+  console.log(videoInfo);
+}
+getVideoInfo();
 ```
 
 ## Module
@@ -44,4 +51,5 @@ getActivities();
 ```javascript
 .info(CHANNEL_NAME,API_KEY) //Fetch all available data from a YouTube Channel (Promise)
 .activities(CHANNEL_ID,API_KEY,MAX_RESULTS) // Fetch all activities of a given CHANNEL_ID [recived from info module] and an optional MAX_RESULTS parameter. Default is 5 (Promise)
+.listVideoInfo(VIDEO_IDS,API_KEY) //Video IDs must be an array
 ```

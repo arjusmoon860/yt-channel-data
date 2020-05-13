@@ -32,7 +32,26 @@ const getChannelActivities = function (ytChannelID, API_KEY, maxResults) {
   });
 };
 
+const listVideoDetails = function (videoID, API_KEY) {
+  return new Promise((resolve, reject) => {
+    if (videoID.constructor != Array) {
+      reject("Video IDs must be an array");
+    }
+    let videoIDs = videoID.join();
+    let fetchURL = `https://www.googleapis.com/youtube/v3/videos?part=contentDetails,liveStreamingDetails,localizations,snippet,statistics,status,topicDetails&id=${videoIDs}&key=${API_KEY}`;
+    axios
+      .get(fetchURL)
+      .then((response) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
 module.exports = {
   info: getChannelInfo,
   activities: getChannelActivities,
+  listVideoInfo: listVideoDetails,
 };

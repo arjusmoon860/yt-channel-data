@@ -50,8 +50,29 @@ const listVideoDetails = function (videoID, API_KEY) {
   });
 };
 
+const listChannelPlaylist = function (ytChannelID, API_KEY, maxResults) {
+  return new Promise((resolve, reject) => {
+    let maxData = 5;
+    if (maxResults) {
+      maxData = parseInt(maxResults);
+    }
+    let fetchURL = `https://www.googleapis.com/youtube/v3/playlists?part=snippet,contentDetails,localizations,status&channelId=${ytChannelID}&maxResults=${maxData}&key=${API_KEY}`;
+
+    axios
+      .get(fetchURL)
+      .then((response) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        reject(error);
+      });
+  });
+};
+
 module.exports = {
   info: getChannelInfo,
   activities: getChannelActivities,
   listVideoInfo: listVideoDetails,
+  listPlaylists: listChannelPlaylist,
 };

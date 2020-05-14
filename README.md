@@ -26,6 +26,7 @@ The following requirements apply to YouTube Data API requests:
 
 ```javascript
 const channelData = require("yt-channel-data");
+
 async function getChannelInfo() {
   var channelInfo = await channelData.info("CHANNEL_NAME", "API_KEY");
   console.log(channelInfo);
@@ -44,6 +45,12 @@ async function getVideoInfo() {
   console.log(videoInfo);
 }
 getVideoInfo();
+
+async function getChannelPlaylist() {
+  var playlists = await channelData.listPlaylists("CHANNEL_ID", "API_KEY", 20);
+  console.log(playlists);
+}
+getChannelPlaylist();
 ```
 
 ## Module
@@ -52,4 +59,5 @@ getVideoInfo();
 .info(CHANNEL_NAME,API_KEY) //Fetch all available data from a YouTube Channel (Promise)
 .activities(CHANNEL_ID,API_KEY,MAX_RESULTS) // Fetch all activities of a given CHANNEL_ID [recived from info module] and an optional MAX_RESULTS parameter. Default is 5 (Promise)
 .listVideoInfo(VIDEO_IDS,API_KEY) //Video IDs must be an array
+.listPlaylists(CHANNEL_ID,API_KEY,MAX_RESULTS) // MAX_RESULTS default value is 5, if not specified.
 ```
